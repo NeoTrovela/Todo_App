@@ -1,0 +1,18 @@
+In the Todo app
+1 . Add a new attribute to the Todo model and update the views to display and
+edit the new field. For practical purposes, let’s say we want to add a new boolean field called
+done with a default value of false
+
+rails generate migration AddDoneToTodo done:boolean
+rails db:migrate
+Update todos_controller to include done attribute
+Update _form.html.erb and _todo.html.erb views files
+
+2. Change the routing schema. Suppose we want a new route new_todo to go to a page that
+creates a new Todo item.
+
+
+3. Set todos#index as the homepage for the app.
+
+went to routes.rb
+made todos#index the root to make it the homepage -> root "todos#index"
