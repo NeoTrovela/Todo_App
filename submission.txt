@@ -4,15 +4,49 @@ edit the new field. For practical purposes, let’s say we want to add a new boo
 done with a default value of false
 
 rails generate migration AddDoneToTodo done:boolean
+      invoke  active_record
+      create    db/migrate/20251007151625_add_done_to_todo.rb
+
 rails db:migrate
+== 20251007151625 AddDoneToTodo: migrating ====================================
+-- add_column(:todos, :done, :boolean)
+   -> 0.0019s
+== 20251007151625 AddDoneToTodo: migrated (0.0020s) ===========================
+
 Update todos_controller to include done attribute
-Update _form.html.erb and _todo.html.erb views files
+
+def todo_params
+      params.require(:todo).permit(:description, :due_date, :done) <- added :done to the end
+    end
+
+
+Update _form.html.erb
+<div>
+    <%= form.label :done, style: "display: block" %>
+    <%= form.check_box :done %>
+</div>
+
+and _todo.html.erb views files
+<p>
+    <strong>Done:</strong>
+    <%= todo.done %>
+</p>
 
 2. Change the routing schema. Suppose we want a new route new_todo to go to a page that
 creates a new Todo item.
-
+The route new_todo already exists and goes to the new Todo page
+new_todo GET /todos/new(.:format) todos#new
 
 3. Set todos#index as the homepage for the app.
 
 went to routes.rb
 made todos#index the root to make it the homepage -> root "todos#index"
+root "todos#index"
+
+Files changed:
+/app/controllers/todos_controller.rb
+/app/views/todos/_form.html.erb
+/app/views/todos/_todo.html.erb
+/config/routes.rb
+/db/schema.rb
+/db/migrate/20251007151625_add_done_to_todo.rb
