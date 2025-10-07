@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "todos#index"
 
-  get '/hello', to: 'todos#hello'
+  get "/hello", to: "todos#hello"
 end
