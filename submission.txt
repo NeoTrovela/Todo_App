@@ -50,3 +50,12 @@ Files changed:
 /config/routes.rb
 /db/schema.rb
 /db/migrate/20251007151625_add_done_to_todo.rb
+
+database migrations:
+heroku run rails db:migrate
+heroku run rails db:seed 
+
+testing:
+heroku open
+
+App URL: https://neotrovelavillamiel-todo-0c6c54d0d045.herokuapp.com/
