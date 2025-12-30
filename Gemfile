@@ -33,7 +33,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :production do
-  gem "pg", "~> 1.1"
+  gem "pg", "~> 1.6"
 end
 
 group :development, :test do
